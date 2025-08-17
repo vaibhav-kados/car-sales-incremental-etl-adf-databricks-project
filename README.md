@@ -113,14 +113,6 @@ This schema supports analytics such as:
 
 ---
 
-## 🔮 Future Enhancements  
-- Add **data quality checks** (Great Expectations / Deequ)  
-- Enable **real-time ingestion** with Event Hubs + Spark Streaming  
-- Automate deployment using **Terraform/ARM templates**  
-- Expand **Power BI dashboards** for advanced reporting  
-
----
 
 ## 🤝 Connect  
-- 💻 GitHub Repo: *[Insert your repo link]*  
-- 🔗 LinkedIn: *[Your LinkedIn profile]*  
+- 🔗 LinkedIn: *[[Your LinkedIn profile]](https://www.linkedin.com/in/vaibhav-kados-45689020a/)*  
