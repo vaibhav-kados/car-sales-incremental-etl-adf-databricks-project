@@ -40,8 +40,8 @@ The solution follows the **Medallion Architecture** pattern:
 - **ADF pipelines** copy this data into **ADLS Bronze** in **Parquet format**.  
 - Incremental ingestion is enabled using a **watermarking mechanism** (`last_load_date`).  
 
-![ADF Pipeline](docs/adf-pipeline.png)  
-![ADF Debug Run](docs/adf-debug.png)  
+![ADF Pipeline](docs/3.adf_pipeline_design_view.png)  
+![ADF Master Pipeline](docs/5.master_adf_pipeline.png)  
 
 ---
 
@@ -53,7 +53,7 @@ The solution follows the **Medallion Architecture** pattern:
   - Standardized schema & handled null values  
 - Output written to **Silver container** in Delta format.  
 
-![Databricks Silver Notebook](docs/databricks-silver.png)  
+![Databricks Silver Notebook](docs/6.transformed_silver_data.png)  
 
 ---
 
@@ -69,8 +69,8 @@ This schema supports analytics such as:
 - Model-wise sales trends  
 - Revenue growth analysis  
 
-![Gold Schema Diagram](docs/gold-schema.png)  
-![Fact Table Query](docs/fact-sales.png)  
+![Gold Schema Diagram](docs/8.schema_diagram.png)  
+![Fact Table Query](docs/7.fact_sales_data.png)  
 
 ---
 
@@ -79,7 +79,7 @@ This schema supports analytics such as:
   - Silver processing → Dimensions update → Fact table load  
 - Supports both **initial load** and **incremental updates**.  
 
-![Databricks Workflow](docs/databricks-workflow.png)  
+![Databricks Workflow](docs/9.databricks_job.png)  
 
 ---
 
@@ -88,7 +88,7 @@ This schema supports analytics such as:
 - **Silver:** Cleaned & enriched data (Delta format)  
 - **Gold:** Star schema with Fact & Dimension tables (Delta format)  
 
-![Power BI Dashboard](docs/powerbi-dashboard.png)  
+![DatabricksCatalogView](docs/10.cars_catalog.png)  
 
 ---
 
