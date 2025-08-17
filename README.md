@@ -115,4 +115,4 @@ This schema supports analytics such as:
 
 
 ## 🤝 Connect  
-- 🔗 LinkedIn: *[[Your LinkedIn profile]](https://www.linkedin.com/in/vaibhav-kados-45689020a/)*  
+- 🔗 LinkedIn: *[[Vaibhav Kados]](https://www.linkedin.com/in/vaibhav-kados-45689020a/)*  
