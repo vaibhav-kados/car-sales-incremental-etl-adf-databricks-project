@@ -1,0 +1,201 @@
+{
+    "name": "copy_data_to_sql",
+    "properties": {
+        "activities": [
+            {
+                "name": "copy_from_github",
+                "type": "Copy",
+                "dependsOn": [],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "source": {
+                        "type": "DelimitedTextSource",
+                        "storeSettings": {
+                            "type": "HttpReadSettings",
+                            "requestMethod": "GET"
+                        },
+                        "formatSettings": {
+                            "type": "DelimitedTextReadSettings"
+                        }
+                    },
+                    "sink": {
+                        "type": "AzureSqlSink",
+                        "writeBehavior": "insert",
+                        "sqlWriterUseTableLock": false
+                    },
+                    "enableStaging": false,
+                    "translator": {
+                        "type": "TabularTranslator",
+                        "mappings": [
+                            {
+                                "source": {
+                                    "name": "Branch_ID",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "Branch_ID",
+                                    "type": "String",
+                                    "physicalType": "varchar"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "Dealer_ID",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "Dealer_ID",
+                                    "type": "String",
+                                    "physicalType": "varchar"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "Model_ID",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "Model_ID",
+                                    "type": "String",
+                                    "physicalType": "varchar"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "Revenue",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "Revenue",
+                                    "type": "Int64",
+                                    "physicalType": "bigint"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "Units_Sold",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "Units_Sold",
+                                    "type": "Int64",
+                                    "physicalType": "bigint"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "Date_ID",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "Date_ID",
+                                    "type": "String",
+                                    "physicalType": "varchar"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "Day",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "Day",
+                                    "type": "Byte",
+                                    "physicalType": "tinyint"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "Month",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "Month",
+                                    "type": "Byte",
+                                    "physicalType": "tinyint"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "Year",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "Year",
+                                    "type": "Int16",
+                                    "physicalType": "smallint"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "BranchName",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "Branch_Name",
+                                    "type": "String",
+                                    "physicalType": "varchar"
+                                }
+                            },
+                            {
+                                "source": {
+                                    "name": "Product_Name",
+                                    "type": "String",
+                                    "physicalType": "String"
+                                },
+                                "sink": {
+                                    "name": "Product_Name",
+                                    "type": "String",
+                                    "physicalType": "varchar"
+                                }
+                            }
+                        ],
+                        "typeConversion": true,
+                        "typeConversionSettings": {
+                            "allowDataTruncation": true,
+                            "treatBooleanAsNumber": false
+                        }
+                    }
+                },
+                "inputs": [
+                    {
+                        "referenceName": "github_dataset",
+                        "type": "DatasetReference",
+                        "parameters": {
+                            "file_name": "SalesData.csv"
+                        }
+                    }
+                ],
+                "outputs": [
+                    {
+                        "referenceName": "carSalesData",
+                        "type": "DatasetReference",
+                        "parameters": {
+                            "table_name": "source_cars_data"
+                        }
+                    }
+                ]
+            }
+        ],
+        "annotations": [],
+        "lastPublishTime": "2025-08-06T17:34:37Z"
+    },
+    "type": "Microsoft.DataFactory/factories/pipelines"
+}
